@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Facture</title>
+        <script>
+
+
+function calculer ()
+{
+
+var x1 = document.getElementById("prix1").value * document.getElementById("qte1").value;
+var x2 = document.getElementById("prix2").value * document.getElementById("qte2").value;
+var x3 = document.getElementById("prix3").value * document.getElementById("qte3").value;
+
+var tva = document.getElementById("tva").value;
+
+var tva1 = x1 * tva ;
+var tva2 = x2 * tva ;
+var tva3 = x3 * tva ;
+
+var prixtva1 = tva1 / 100 ;
+var prixtva2 = tva2 / 100 ;
+var prixtva3 = tva3 / 100 ;
+
+var prixttc1 = x1 + prixtva1;
+var prixttc2 = x2 + prixtva2;
+var prixttc3 = x3 + prixtva3;
+
+var ttc = prixttc1 + prixttc2 + prixttc3 ; 
+
+document.getElementById("ttc").value = ttc ;
+
+//alert (ttc);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </script>
+     
+        </head>
+        <body>
+            <center>
+                <h3>FACTURE AVEC JAVASCRIPT</h3>
+           
+             <table border="2" id = "facture">
+            <form method="get" action="#">
+            <tr><td>Num</td> <td>Designation</td> <td>qte</td> <td>prix unitaire</td> </tr>
+            <tr><td>1</td> <td><input type="text" id="article1" /></td> <td><input type="text" id="qte1" value=""></td> <td><input id="prix1" value=""></td> </tr>
+            <tr><td>2</td> <td><input type="text" id="article2" value=""></td> <td><input type="text" id="qte2" value=""></td> <td><input id="prix2" value=""></td> </tr>
+            <tr><td>3</td> <td><input type="text" id="article3" value=""></td> <td><input type="text" id="qte3" value=""></td> <td><input id="prix3" value=""></td> </tr>
+            <tr><td>TVA</td> <td><b><input type="text" id="tva" value="17.5">%</b></td><td>TOTAL(TTC)</td><td><input type="text" id="ttc"/></td> </tr>
+            <tr><input type = "reset">  <button onclick="calculer();">calculer</button>  </tr>
+            </form>
+            </table>
+        </center>
+
+
+        </body>
+
+</html>
