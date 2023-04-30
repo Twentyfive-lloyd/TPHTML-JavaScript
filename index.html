@@ -1,13 +1,86 @@
 <html>
 <head>
 <title>Formulaire</title>
+
+<script>
+
+
+    function valider ()
+        {
+            var name = document.forms["inscription"]["nom"];
+            var surname = document.forms["inscription"]["prenom"];
+            var sexe = document.forms["inscription"]["sexe"];
+            var age = document.forms["inscription"]["age"];
+            var email = document.forms["inscription"]["email"];
+            var password = document.forms["inscription"]["password"];
+            var confirm_password = document.forms["inscription"]["confirm_password"];
+        
+
+            if (name.value == "") {
+                alert("Mettez votre nom.");
+                name.focus();
+                return false;
+                }
+            if (surname.value == "") {
+                alert("Mettez votre prenom.");
+                surname.focus();
+                return false;
+                }
+            if (sexe.value == "") {
+                alert("Renseignez votre sexe.");
+                sexe.focus();
+                return false;
+                }
+            if (email.value.indexOf("@", 0) < 0) {
+                alert("Mettez une adresse email valide.");
+                email.focus();
+                return false;
+            }
+            if (email.value.indexOf(".", 0) < 0) {
+                alert("Mettez une adresse email valide.");
+                email.focus();
+                return false;
+            }
+            if (age.value == "") {
+                alert("Mettez votre age.");
+                age.focus();
+                return false;
+            }
+            if (age.value <= 12)
+            {
+                alert("Vous etes trop jeune !");
+                age.focus();
+                return false;
+            }
+            else if(age.value >= 50)
+            {
+                alert("Vous etes trop vieux!");
+                age.focus();
+                return false
+            }
+            if (password.value == "") {
+                alert("Saisissez votre mot de passe.");
+                password.focus();
+                return false;
+            }
+            if(confirm_password.value != password.value)
+            {
+                alert("Verifiez votre mot de passe.");
+                confirm_password.focus();
+                return false;
+            }
+            
+            return true;
+      }
+    
+    </script>
 </head>
 <body>
     <center>
 
         <h1>Verification d'un formulaire HTML avec JavaScript</h1>
 
-        <form name="inscription" id="ins" action="inscription.php" method="POST">
+        <form name="inscription" id="ins" action="#" method="POST">
             Nom:<input name = "nom" type = "text" placeholder="nom" id="nom"/><br/>
             Prenom:<input name = "prenom" type = "text" placeholder="prenom" id ="prenom"/><br/>
             Sexe: M<input name = "sexe" type="radio" id="sexe"/> F<input name ="sexe" type="radio" id="sexe"/><br/>
@@ -15,7 +88,7 @@
             Email: <input name = "email" type="email" id = "email" placeholder="email"/><br/>
             Password: <input name = "password" type="password" id="password" placeholder="password"/><br/>
             Confirm password:<input name = "confirm_password" type = "password" id="confirm_password" placeholder="confirm_password"/><br/>
-            <input type="reset"/> <input type="submit" value="valider"/>
+            <input type="reset"/> <button onclick="valider();">valider</button>
         </form>
 
     </center>
